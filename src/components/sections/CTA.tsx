@@ -1,56 +1,52 @@
+"use client";
+
+import { motion } from 'framer-motion';
 import { Section } from '../common/Section';
-import { Button } from '../common/Button';
+import Link from 'next/link';
 
-interface CTAProps {
-  title?: string;
-  subtitle?: string;
-  primaryButtonText?: string;
-  primaryButtonLink?: string;
-  secondaryButtonText?: string;
-  secondaryButtonLink?: string;
-  background?: 'white' | 'light' | 'dark';
-}
-
-export function CTA({
-  title = "Ready to Get Started?",
-  subtitle = "Join thousands of satisfied customers who trust us with their digital presence.",
-  primaryButtonText = "Get Started",
-  primaryButtonLink = "/contact",
-  secondaryButtonText = "Learn More",
-  secondaryButtonLink = "/about",
-  background = 'dark'
-}: CTAProps) {
+export function CTA() {
   return (
-    <Section background={background}>
-      <div className="text-center max-w-3xl mx-auto">
-        <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${
-          background === 'dark' ? 'text-white' : 'text-gray-900'
-        }`}>
-          {title}
-        </h2>
-        <p className={`text-xl mb-8 ${
-          background === 'dark' ? 'text-gray-300' : 'text-gray-600'
-        }`}>
-          {subtitle}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            href={primaryButtonLink}
-            variant={background === 'dark' ? 'primary' : 'outline'}
-            size="lg"
+    <Section className="bg-primary-600 text-gray-700">
+      <div className="max-w-4xl mx-auto text-center">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3 }}
+        >
+          Ready to Make a Difference?
+        </motion.h2>
+        <motion.p
+          className="text-xl text-gray-700 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+        >
+          Join us in our mission to provide stable housing and build stronger communities.
+          Your support can change lives.
+        </motion.p>
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+        >
+          <Link
+            href="/get-involved"
+            className="inline-block px-8 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
           >
-            {primaryButtonText}
-          </Button>
-          {secondaryButtonText && (
-            <Button 
-              href={secondaryButtonLink}
-              variant={background === 'dark' ? 'outline' : 'secondary'}
-              size="lg"
-            >
-              {secondaryButtonText}
-            </Button>
-          )}
-        </div>
+            Get Involved
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-block px-8 py-3 bg-primary-700 text-gray-700 font-semibold rounded-lg border-2 border-white hover:bg-primary-800 transition-colors"
+          >
+            Contact Us
+          </Link>
+        </motion.div>
       </div>
     </Section>
   );

@@ -7,6 +7,7 @@ interface SectionProps {
   containerClassName?: string;
   background?: 'white' | 'light' | 'dark';
   spacing?: 'none' | 'small' | 'medium' | 'large';
+  id?: string;
 }
 
 export function Section({
@@ -14,7 +15,8 @@ export function Section({
   className = '',
   containerClassName = '',
   background = 'white',
-  spacing = 'large'
+  spacing = 'large',
+  id
 }: SectionProps) {
   const backgroundStyles = {
     white: 'bg-white',
@@ -31,6 +33,7 @@ export function Section({
 
   return (
     <section 
+      id={id}
       className={`
         ${backgroundStyles[background]}
         ${spacingStyles[spacing]}

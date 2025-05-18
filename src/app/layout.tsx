@@ -9,14 +9,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://example.com'),
   title: {
-    default: 'Your Company Name',
-    template: '%s | Your Company Name',
+    default: 'HomesUnited',
+    template: '%s | HomesUnited',
   },
-  description: 'Professional web development and digital solutions for your business.',
+  description: 'Helping to rebuild lives, one home at a time',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Your Company Name',
+    siteName: 'HomesUnited',
   },
   robots: {
     index: true,
