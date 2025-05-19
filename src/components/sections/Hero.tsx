@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '@/components/common/Button';
 
 interface HeroProps {
   title: string;
@@ -22,64 +23,49 @@ export function Hero({
   secondaryCtaLink 
 }: HeroProps) {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden mt-20 md:mt-16">
-      {/* Background Image */}
-      <motion.div
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-        className="absolute inset-0 z-0"
-      >
-        <Image
-          src="/images/hero-main.jpg"
-          alt="Family moving into new home"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        {/* Darker overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-gray-900/70" />
-      </motion.div>
-
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 pt-16 md:pt-0">
-        <div className="max-w-2xl">
-          <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+    <section className="relative min-h-[90vh] flex items-center pt-24 md:pt-20">
+      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+        {/* Text Content - Left Side */}
+        <motion.div
+          className="relative z-10 order-2 md:order-1"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             {title}
-          </motion.h1>
-          <motion.p
-            className="text-xl text-gray-200 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
+          </h1>
+          <p className="text-xl text-gray-700 mb-8">
             {subtitle}
-          </motion.p>
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Link
-              href={ctaLink || "/get-involved"}
-              className="inline-block px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
-            >
-              {ctaText || "Get Started Today"}
-            </Link>
-            <Link
-              href={secondaryCtaLink || "/about"}
-              className="inline-block px-8 py-4 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-colors"
-            >
-              {secondaryCtaText || "Learn More"}
-            </Link>
-          </motion.div>
-        </div>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button href="/get-involved" variant="primary" size="lg">
+              Get Started Today
+            </Button>
+            <Button href="/about" variant="outline" size="lg">
+              Learn More
+            </Button>
+          </div>
+        </motion.div>
+
+        {/* Image - Right Side */}
+        <motion.div 
+          className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden order-1 md:order-2"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            src="/images/hero-main.jpg"
+            alt="Family moving into new home"
+            fill
+            className="object-cover object-center rounded-2xl transform hover:scale-105 transition-transform duration-700"
+            priority
+          />
+          {/* Decorative elements */}
+          <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary-100 rounded-full -z-10" />
+          <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent-100 rounded-full -z-10" />
+        </motion.div>
       </div>
     </section>
   );
