@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Button } from '@/components/common/Button';
 import { Section } from '@/components/common/Section';
 
@@ -13,7 +12,7 @@ export default function NotFound() {
           Page Not Found
         </h2>
         <p className="text-xl text-gray-600 mb-8">
-          Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.
+          Sorry, we couldn&apos;t find the page you&apos;re looking for. It might have been moved or deleted.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button href="/" size="lg">

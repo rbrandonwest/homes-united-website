@@ -42,27 +42,21 @@ export function Testimonials() {
 
   return (
     <Section className="bg-gradient-to-b from-white to-primary-50 overflow-hidden">
-      <div className="text-center mb-16">
-        <motion.h2 
-          className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Success Stories
-        </motion.h2>
-        <motion.p 
-          className="text-xl text-gray-700 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
-          Real stories from people we've helped in our community
-        </motion.p>
-      </div>
-
       <div className="max-w-6xl mx-auto">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            What Our Community Says
+          </h2>
+          <p className="text-xl text-gray-700">
+            Don&apos;t just take our word for it - hear from those we&apos;ve helped
+          </p>
+        </motion.div>
+
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image Side */}
           <motion.div 

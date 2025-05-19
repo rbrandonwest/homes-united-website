@@ -10,14 +10,30 @@ import { Contact } from '@/components/sections/Contact';
 export default function Home() {
   return (
     <main>
-      <Hero />
+      <Hero 
+        title="Building Hope, Creating Homes"
+        subtitle="Empowering communities through stable housing solutions and comprehensive support services."
+      />
       <Features />
       <About />
-      <Services />
-      <Partners />
-      <Testimonials />
-      <CTA />
-      <Contact />
+      <div className="bg-gradient-to-b from-primary-50 to-white">
+        <Services />
+      </div>
+      <div className="bg-gradient-to-b from-white to-primary-50/50">
+        <Partners />
+      </div>
+      <div className="bg-gradient-to-br from-primary-50 to-white">
+        <Testimonials />
+      </div>
+      <CTA 
+        title="Ready to Make a Difference?"
+        subtitle="Join us in our mission to provide stable housing"
+        primaryButtonText="Get Started Today"
+        background="light"
+      />
+      <div className="bg-gradient-to-b from-gray-50 to-white">
+        <Contact />
+      </div>
     </main>
   );
 }

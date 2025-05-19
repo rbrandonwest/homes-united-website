@@ -1,9 +1,8 @@
 import { generateMetadata } from '@/lib/metadata';
-import { AboutHero } from '@/components/sections/AboutHero';
-import { Mission } from '@/components/sections/Mission';
-import { Team } from '@/components/sections/Team';
-import { Partners } from '@/components/sections/Partners';
-import { CTA } from '@/components/sections/CTA';
+import { AboutHero } from '../../components/sections/AboutHero';
+import { Mission } from '../../components/sections/Mission';
+import { Partners } from '../../components/sections/Partners';
+import { CTA } from '../../components/sections/CTA';
 
 export const metadata = generateMetadata({
   title: 'About Us',
@@ -16,9 +15,15 @@ export default function AboutPage() {
     <main>
       <AboutHero />
       <Mission />
-      <Team />
       <Partners />
-      <CTA />
+      <CTA 
+        title="Ready to Learn More?"
+        subtitle="Get in touch with our team"
+        primaryButtonText="Contact Us"
+        primaryButtonLink="/contact"
+        secondaryButtonText="Our Services"
+        secondaryButtonLink="/services"
+      />
     </main>
   );
 } 
