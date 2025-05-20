@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from '@/components/common/Button';
 
 interface HeroProps {
@@ -17,10 +16,6 @@ interface HeroProps {
 export function Hero({ 
   title, 
   subtitle, 
-  ctaText, 
-  ctaLink, 
-  secondaryCtaText, 
-  secondaryCtaLink 
 }: HeroProps) {
   return (
     <section className="relative min-h-[90vh] flex items-center pt-24 md:pt-20">
